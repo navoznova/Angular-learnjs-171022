@@ -1,0 +1,5 @@
+build
+node_module
+dist
+.angular
+*.html
