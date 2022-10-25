@@ -32,7 +32,7 @@ module.exports = function (config) {
       subdir: ".",
       reporters: [{ type: "html" }, { type: "text-summary" }],
     },
-    reporters: ["progress", 'kjhtml'],
+    reporters: ["progress", '"kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
