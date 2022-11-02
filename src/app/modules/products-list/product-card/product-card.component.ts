@@ -9,7 +9,6 @@ import { productMock } from 'src/app/shared/products/product.mock';
 })
 export class ProductCardComponent {
 	public product: IProduct = productMock;
-	public selectedProductId: string = '';
 
 	buyProduct(event: Event) {
 		event.stopPropagation();
