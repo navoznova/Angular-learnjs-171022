@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { IProduct } from 'src/app/shared/products/product.interface';
 import { productMock } from 'src/app/shared/products/product.mock';
 
 @Component({
@@ -6,15 +7,11 @@ import { productMock } from 'src/app/shared/products/product.mock';
 	templateUrl: './product-card.component.html',
 	styleUrls: ['./product-card.component.less'],
 })
-export class ProductCardComponent implements OnInit {
-	public product = productMock;
+export class ProductCardComponent {
+	public product: IProduct = productMock;
 	public selectedProductId: string = '';
 
-	ngOnInit(): void {}
-
-	buyProduct(event: Event, id: string) {
-		this.selectedProductId = id;
-		console.log(id);
+	buyProduct(event: Event) {
 		event.stopPropagation();
 	}
 }
