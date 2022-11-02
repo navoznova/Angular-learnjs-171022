@@ -8,12 +8,24 @@ import { productMock } from '../../../shared/products/product.mock';
 	styleUrls: ['./product-card.component.less'],
 })
 export class ProductCardComponent {
-	readonly product = productMock;
+	@Input() product: IProduct | undefined;
+	@Output() productBuy = new EventEmitter<IProduct['_id'] | undefined>();
+
+	getImageUrl() {
+		return this.product?.images[0].url || '';
+	}
+
+	getPrice() {
+		return this.product?.price || '-';
+	}
+
+	getFeedback() {
+		return this.product?.feedbacksCount || '-';
+	}
 
 	onProductBuy(event: Event) {
 		event.stopPropagation();
-
-		console.log('Buy');
+		this.productBuy.emit(this.product?._id);
 	}
 
 	isStarActive(starIndex: number): boolean {
