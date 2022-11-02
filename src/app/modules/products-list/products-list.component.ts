@@ -12,4 +12,8 @@ export class ProductsListComponent {
 	showProductId(productId: string | undefined) {
 		console.log(productId);
 	}
+
+	showProductRating(rating: number) {
+		console.log(rating);
+	}
 }

@@ -10,6 +10,7 @@ import { productMock } from '../../../shared/products/product.mock';
 export class ProductCardComponent {
 	@Input() product: IProduct | undefined;
 	@Output() productBuy = new EventEmitter<IProduct['_id'] | undefined>();
+	@Output() productLike = new EventEmitter<IProduct['rating']>();
 
 	getImageUrl() {
 		return this.product?.images[0].url || '';
@@ -26,6 +27,10 @@ export class ProductCardComponent {
 	onProductBuy(event: Event) {
 		event.stopPropagation();
 		this.productBuy.emit(this.product?._id);
+	}
+
+	likeProduct(event: Event) {
+		this.productLike.emit(this.product?.rating);
 	}
 
 	isStarActive(starIndex: number): boolean {

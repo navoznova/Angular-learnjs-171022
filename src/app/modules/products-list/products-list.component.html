@@ -1,3 +1,8 @@
 <div class="container">
-        <app-product-card class="product" [product]="productObject" (productBuy)="showProductId($event)"></app-product-card>
+        <app-product-card 
+                class="product" 
+                [product]="productObject" 
+                (productBuy)="showProductId($event)"
+                (productLike)="showProductRating($event)">
+        </app-product-card>
 </div>
