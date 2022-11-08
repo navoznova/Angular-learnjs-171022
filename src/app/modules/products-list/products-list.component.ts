@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IProduct } from 'src/app/shared/products/product.interface';
 import { productMock } from 'src/app/shared/products/product.mock';
 
 @Component({
@@ -7,13 +8,13 @@ import { productMock } from 'src/app/shared/products/product.mock';
 	styleUrls: ['./products-list.component.less'],
 })
 export class ProductsListComponent {
-	productObject = productMock;
+	productObject: IProduct = productMock;
 
 	showProductId(productId: string | undefined) {
 		console.log(productId);
 	}
 
-	showProductRating(rating: number) {
+	showProductRating(rating: number | undefined) {
 		console.log(rating);
 	}
 }

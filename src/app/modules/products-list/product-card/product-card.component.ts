@@ -10,18 +10,18 @@ import { productMock } from '../../../shared/products/product.mock';
 export class ProductCardComponent {
 	@Input() product: IProduct | undefined;
 	@Output() productBuy = new EventEmitter<IProduct['_id'] | undefined>();
-	@Output() productLike = new EventEmitter<IProduct['rating']>();
+	@Output() productLike = new EventEmitter<IProduct['rating'] | undefined>();
 
-	getImageUrl() {
+	get getImageUrl(): string {
 		return this.product?.images[0].url || '';
 	}
 
-	getPrice() {
-		return this.product?.price || '-';
+	get getPrice(): string {
+		return this.product?.price.toString() || '-';
 	}
 
-	getFeedback() {
-		return this.product?.feedbacksCount || '-';
+	get getFeedback(): string {
+		return this.product?.feedbacksCount.toString() || '-';
 	}
 
 	onProductBuy(event: Event) {
